@@ -1,0 +1,32 @@
+<html>
+<head>
+<script>
+    function setURL(){
+    var sn_value = document.getElementById("sn_id").value;
+    //check serial number
+    alert(sn_value );
+    var ml_url =  "https://portal.masterloop.net/#/devices/general/"+sn_value;
+
+open = window.open(ml_url,"popup"," menubar =0,toolbar =0,location=0, height=900, width=1000"); 
+open.window.moveTo(950,150); 
+
+    }
+</script>
+<style>
+    body {
+        background-color: #0D1117;
+        
+    }
+    label {
+        color: white;
+    }
+    </style>
+</head>
+<body>
+<div style="text-align:left; margin:8px 5px auto;">
+        <label for="sn_id">Serial number:</label>
+        <input type="Text" id="sn_id" maxlength="25" size="25"/>
+        <input type='button' onclick='setURL()' value='SUBMIT'> 
+</div>
+</body>
+</html>
