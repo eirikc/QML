@@ -1,0 +1,24 @@
+<html>
+<head>
+<script>
+    function setURL(){
+    var dt_value = document.getElementById("dt_id").value;
+    //just test here ..what is coming..
+    alert(dt_value );
+    var sjdurl =  "www.google.com?datetime="+dt_value;
+
+popup = window.open(sjdurl,"popup"," menubar =0,toolbar =0,location=0, height=900, width=1000"); 
+popup.window.moveTo(950,150); 
+
+    }
+</script>
+</head>
+<body>
+<div style="text-align:left; margin:8px 5px auto;">
+        <label for="dt_id">Please enter a date and time </label>
+        <input type="Text" id="dt_id" maxlength="25" size="25"/>
+        <input type='button' onclick='setURL()' value='SUBMIT'> 
+</div>
+
+</body>
+</html>
