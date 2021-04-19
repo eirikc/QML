@@ -3,12 +3,14 @@
 <html>
 <head>
 <script>
-    function setURL(){
+    var input = document.getElementById("sn_id");
     var sn_value = document.getElementById("sn_id").value;
     var ml_url =  "https://portal.masterloop.net/#/devices/general/"+sn_value;
+    
+    function setURL(){
     window.open(ml_url);
     }
-    var input = document.getElementById("sn_id");
+   
     input.addEventListener("keyup", function(event) {
         if (event.keyCode === 13) {
             event.preventDefault();
@@ -41,7 +43,7 @@ input[type=button]:hover {
 </style>
 <body>
 <div style="text-align:center; margin:20px 5px auto;">
-        <!--label for="sn_id">Serial number:</label-->
+        <label for="sn_id">Quick Masterloop</label>
         <input type="Text" placeholder="Serial number" id="sn_id" maxlength="8" size="10"/>
         <input type='button' id="link_btn" onclick='setURL()' value='Enter'> 
 </div>
