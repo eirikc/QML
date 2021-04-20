@@ -5,7 +5,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Title</title>
+    <title>Quick Masterloop</title>
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +23,7 @@
     </div>
 
 
-    <iframe id="MLembed" title="Masterloop page" src="https://portal.masterloop.net/#/devices/listing" frameborder="0"
+    <iframe id="ml_embed" title="Masterloop page" src="https://portal.masterloop.net/#/devices/listing" frameborder="0"
         style="overflow:hidden;height:100%;width:100%" height="100%" width="100%">
     </iframe>
 
@@ -31,8 +31,8 @@
         function setURL() {
             var sn_value = document.getElementById("sn_id").value;
             var ml_url = "https://portal.masterloop.net/#/devices/general/" + sn_value;
-            var iframe = document.getElementById("MLembed");
-            document.getElementById("MLembed").src = ml_url;
+            var iframe = document.getElementById("ml_embed");
+            document.getElementById("ml_embed").src = ml_url;
         };
 
         var serial = document.getElementById("sn_id");
