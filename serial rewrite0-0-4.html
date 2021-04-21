@@ -1,0 +1,128 @@
+<!doctype html>
+<!--This is an HTML5 document-->
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Quick Masterloop</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+    <div style="text-align:left; margin:10px 245px auto;">
+
+        <label for="sn_id"></label>
+        <input type="text" placeholder="Serial number" id="sn_id" maxlength="8" size="11">
+        <input type="submit" id="link_btn" value="➡ Device" onclick="setURL()">
+        <input type="submit" id="link_btn2" value="➡ Observations" onclick="Observations()">
+        <input type="submit" id="link_btn3" value="➡ Commands" onclick="Commands()">
+        <input type="submit" id="link_btn4" value="➡ History" onclick="History()">
+        <input type="submit" id="link_btn5" value="⚡ Charger" onclick="chargerPlots()">
+        <input type="submit" id="link_btn6" value="⚡ Network" onclick="networkPlots()">
+        <input type="submit" id="link_btn7" value="⚡ Equalizer" onclick="equalizerPlots()">
+    </div>
+
+
+    <iframe id="ml_embed" title="Masterloop page" src="https://portal.masterloop.net/#/devices/listing" frameborder="0"
+        style="overflow:hidden;height:100%;width:100%" height="100%" width="100%">
+    </iframe>
+
+    <script>
+        function setURL() {
+            var sn_value = document.getElementById("sn_id").value;
+            var ml_url = "https://portal.masterloop.net/#/devices/general/" + sn_value;
+            document.getElementById("ml_embed").src = ml_url;
+        }
+
+        function Observations() {
+            var sn_value = document.getElementById("sn_id").value;
+            var Observations_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value;
+            document.getElementById("ml_embed").src = Observations_url;
+        }
+
+        function Commands() {
+            var sn_value = document.getElementById("sn_id").value;
+            var Commands_url = "https://portal.masterloop.net/#/devices/quickCommands/" + sn_value;
+            document.getElementById("ml_embed").src = Commands_url;
+        }
+
+        function History() {
+            var sn_value = document.getElementById("sn_id").value;
+            var History_url = "https://portal.masterloop.net/#/devices/" + sn_value + "/commandsHistory";
+            document.getElementById("ml_embed").src = History_url;
+        }
+
+        function chargerPlots() {
+            var sn_value = document.getElementById("sn_id").value;
+            var charger_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[21,38,46,96,104,109,110,114,120,182,183,184,185,194,195,196,197,198,199]";
+            document.getElementById("ml_embed").src = charger_url;
+        }
+
+        function networkPlots() {
+            var sn_value = document.getElementById("sn_id").value;
+            var network_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[11,46,130,131,132,136,150,141]";
+            document.getElementById("ml_embed").src = network_url;
+        }
+
+        function equalizerPlots() {
+            var sn_value = document.getElementById("sn_id").value;
+            var equalizer_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[20,31,32,33,34,35,36,50,70,87,89]";
+            document.getElementById("ml_embed").src = equalizer_url;
+        }
+
+        var serial = document.getElementById("sn_id");
+        serial.addEventListener("keydown", function (event) {
+            if (event.keyCode === 13) {
+                setURL(event);
+            }
+        });
+
+
+    </script>
+
+</body>
+
+<style>
+    iframe {
+        position: fixed;
+        left: 0px;
+        background: #007DBD;
+    }
+
+    body {
+        background-color: #007DBD;
+    }
+
+    label {
+        color: #ffffff;
+    }
+
+    #link_btn {
+        margin-left: 9px;
+
+    }
+
+    #link_btn5 {
+        color: #008812;
+        margin-left: 10px;
+
+    }
+
+    #link_btn6 {
+        color: #008812;
+
+    }
+
+    #link_btn7 {
+        color: #008812;
+
+    }
+
+</style>
+
+</html>
