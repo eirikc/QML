@@ -10,16 +10,15 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
 
 </head>
 
 <body>
 
-    <div style="text-align:left; margin:10px; padding-left: 235px;">
+    <div class="toolbar">
 
-        <label for="sn_id"></label>
-        <input type="text" placeholder="Serial number" id="sn_id" maxlength="8" size="11">
+        <input type="text" placeholder="Serial number" id="sn_id" maxlength="8" size="10">
         <input type="submit" id="link_btn" value="➡ Device" onclick="setURL()">
         <input type="submit" id="link_btn2" value="➡ Observations" onclick="Observations()">
         <input type="submit" id="link_btn3" value="➡ Commands" onclick="Commands()">
@@ -105,13 +104,17 @@
     }
 
     #link_btn {
-        margin-left: 9px;
+        margin-left: 22px;
+
+    }
+
+    #link_btn4 {
+        margin-right: 22px;
 
     }
 
     #link_btn5 {
         color: #008812;
-        margin-left: 10px;
 
     }
 
@@ -122,7 +125,26 @@
 
     #link_btn7 {
         color: #008812;
+        margin-bottom: 5px;
+    }
 
+    .toolbar {
+        color: red;
+        text-align: left;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        margin-left: 245px;
+    }
+
+    @media (max-width: 1080px) {
+    .toolbar {
+      padding:0;
+      margin-left:0;
+    }}
+
+    #sn_id {
+        margin-bottom: 5px;
+        
     }
 
 </style>
