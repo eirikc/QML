@@ -1,0 +1,55 @@
+<head>
+	<title>Masterloop shortcuts</title>
+	<style>
+		body {
+			background-color: #2D2D2D;
+		}
+		
+		h1 {
+			color: #C26356;
+			font-size: 30px;
+			font-family: Menlo, Monaco, fixed-width;
+            text-align: center;
+		}
+		
+		p {
+			color: white;
+			font-family: "Source Code Pro", Menlo, Monaco, fixed-width;
+            text-align: center;
+		}
+
+        a {
+            color: rgb(111, 164, 224)
+
+        }
+	</style>
+</head>
+<body>
+	<h1>Javascript bookmarklets</h1>
+	<p>⚡⚡ Drag these links to your bookmarks bar ⚡⚡</p>
+
+    <div>
+        <p><a href="javascript:(function(){void(q=prompt('Serial Number:'));if(q)window.open('https://portal.masterloop.net/#/devices/general/'+encodeURI(q))})();">Quick Masterloop</a></p>
+    </div>
+    <div>
+        <p><a href="javascript:(function(){void(q=prompt('Serial Number:'));if(q)window.open('https://portal.masterloop.net/#/devices/observations/'+encodeURI(q))})();">Quick Observations</a></p>
+    </div>
+    <div>
+        <p><a href="javascript:(function(){void(q=prompt('Serial Number:'));if(q)window.open('https://portal.masterloop.net/#/devices/quickCommands/'+encodeURI(q))})();">Quick Commands</a></p>
+    </div>    
+    <div>
+        <p><a href="javascript:(function(){void(q=prompt('Serial Number:'));if(q)window.open('https://portal.masterloop.net/#/devices/'+encodeURI(q)+'/commandsHistory')})();">Quick History</a></p>
+    </div>  
+    <div>
+        <p><a href="javascript:(function(){void(q=prompt('Serial Number:'));if(q)window.open('https://portal.masterloop.net/#/devices/observations/'+encodeURI(q)+'/plots?filter=[21,38,46,96,104,109,110,114,120,182,183,184,185,194,195,196,197,198,199]')})();">Quick Charger</a></p>
+    </div>  
+    <div>
+        <p><a href="javascript:(function(){void(q=prompt('Serial Number:'));if(q)window.open('https://portal.masterloop.net/#/devices/observations/'+encodeURI(q)+'/plots?filter=[11,46,130,131,132,136,150,141]')})();">Quick Cell-WiFi</a></p>
+    </div> 
+    <div>
+        <p><a href="javascript:(function(){void(q=prompt('Serial Number:'));if(q)window.open('https://portal.masterloop.net/#/devices/observations/'+encodeURI(q)+'/plots?filter=[20,31,32,33,34,35,36,50,70,87,89]')})();">Quick Equalizer</a></p>
+    </div> 
+
+
+</body>
+</html>
