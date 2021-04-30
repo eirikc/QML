@@ -25,9 +25,9 @@
         placeholder="Serial number" 
         id="sn_id" 
         maxlength="12" size="10" 
-        onblur="this.value=spellCheck(this.value);"
-        onkeydown="this.value=spellCheck(this.value);" 
-        oninput="this.value = this.value.toUpperCase();" >
+        onblur="this.value=spellCheck(this.value); upCase(this)"
+        onkeydown="this.value=spellCheck(this.value); upCase(this)"
+        oninput="let p=this.selectionStart; this.value=this.value.toUpperCase(); this.setSelectionRange(p, p);" />
 
             <!-- Buttons for Masterloop pages and quick plots.
             Will check if ctrl is pressed and will open a new tab if true -->
@@ -41,7 +41,7 @@
     </div>
 
 
-    <iframe id="ml_embed" title="Masterloop page" src="https://portal.masterloop.net/#/devices/listing" frameborder="0"
+    <iframe id="ml_embed" title="Masterloop page" src="https://portal.masterloop.net/#/devices/filter/recent" frameborder="0"
         style="overflow:hidden;height:100%;width:100%" height="100%" width="100%">
     </iframe>
 
@@ -52,6 +52,11 @@
             return string.split(' ').join('');
             return string.split(' ').join('');
         }
+        function upCase(a){
+    setTimeout(function(){
+        a.value = a.value.toUpperCase();
+    }, 1);
+}
 
             //Function for Enter key go to device page
             var serial = document.getElementById("sn_id");
