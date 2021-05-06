@@ -38,6 +38,7 @@
         <input type="submit" id="link_btn5" value="⚡ Charger" onclick="if(event.ctrlKey) chargerPlotsCTRL(); else chargerPlots()">
         <input type="submit" id="link_btn6" value="⚡ Network" onclick="if(event.ctrlKey) networkPlotsCTRL(); else networkPlots()">
         <input type="submit" id="link_btn7" value="⚡ Equalizer" onclick="if(event.ctrlKey) equalizerPlotsCTRL(); else equalizerPlots()">
+        <input type="submit" id="link_btn8" value="🔥 Derate" onclick="if(event.ctrlKey) deratePlotsCTRL(); else deratePlots()">
     </div>
 
 
@@ -122,8 +123,14 @@
             return false; }
             document.getElementById("ml_embed").src = equalizer_url;
         }
-
         
+        function deratePlots() {
+            var sn_value = document.getElementById("sn_id").value;
+            var derate_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[115,114,116,150,151,152,153,154,155,160,161,162,163,170]";
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            document.getElementById("ml_embed").src = derate_url;
+        }
 
             //CTRL + mouse click functions to open new tabs
         function setURLCTRL() {
@@ -182,6 +189,14 @@
             window.open(equalizer_url);
         }
 
+        function deratePlotsCTRL() {
+            var sn_value = document.getElementById("sn_id").value;
+            var derate_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[115,114,116,150,151,152,153,154,155,160,161,162,163,170]";
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            window.open(derate_url);
+        }
+
     </script>
 
 </body>
@@ -223,6 +238,11 @@
 
     #link_btn7 {
         color: #008812;
+        margin-bottom: 5px;
+    }
+    
+    #link_btn8 {
+        color: #886800;
         margin-bottom: 5px;
     }
 
