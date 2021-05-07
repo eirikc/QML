@@ -118,7 +118,7 @@
 
         function equalizerPlots() {
             var sn_value = document.getElementById("sn_id").value;
-            var equalizer_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[20,31,32,33,34,35,36,50,70,87,89]";
+            var equalizer_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[29,31,32,33,34,35,36,37,38,39,50,70,87,88,89,100]";
             if (document.getElementById("sn_id").value === "") {
             return false; }
             document.getElementById("ml_embed").src = equalizer_url;
