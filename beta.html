@@ -1,0 +1,277 @@
+<!doctype html>
+<!--This is an HTML5 document-->
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Quick Masterloop</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+
+</head>
+
+<body>
+
+    <div class="toolbar">
+
+            <!-- Input field for serial number. 
+            All inputs will be spellchecked and corrected to remove spaces 
+            and replace lower case letters with upper case letters --> 
+        <input 
+        type="text"
+        placeholder="Serial number" 
+        id="sn_id" 
+        maxlength="12" size="10" 
+        onblur="this.value=spellCheck(this.value)"
+        onkeyup="this.value=spellCheck(this.value)"/>
+
+            <!-- Buttons for Masterloop pages and quick plots.
+            Will check if ctrl is pressed and will open a new tab if true -->
+        <input type="submit" id="link_btn" value="➡ Device" onclick="if(event.ctrlKey) setURLCTRL(); else setURL()">
+        <input type="submit" id="link_btn2" value="➡ Observations" onclick="if(event.ctrlKey) ObservationsCTRL(); else Observations()">
+        <input type="submit" id="link_btn3" value="➡ Commands" onclick="if(event.ctrlKey) CommandsCTRL(); else Commands()">
+        <input type="submit" id="link_btn4" value="➡ History" onclick="if(event.ctrlKey) HistoryCTRL(); else History()">
+        <input type="submit" id="link_btn5" value="⚡ Charger" onclick="if(event.ctrlKey) chargerPlotsCTRL(); else chargerPlots()">
+        <input type="submit" id="link_btn6" value="⚡ Network" onclick="if(event.ctrlKey) networkPlotsCTRL(); else networkPlots()">
+        <input type="submit" id="link_btn7" value="⚡ Equalizer" onclick="if(event.ctrlKey) equalizerPlotsCTRL(); else equalizerPlots()">
+        <input type="submit" id="link_btn8" value="🔥 Derate" onclick="if(event.ctrlKey) deratePlotsCTRL(); else deratePlots()">
+    </div>
+
+
+    <iframe id="ml_embed" title="Masterloop page" src="https://portal.masterloop.net/#/devices/filter/recent" frameborder="0"
+        style="overflow:hidden;height:100%;width:100%" height="100%" width="100%">
+    </iframe>
+
+    <script>
+
+            //function to remove all spaces in serial text field
+        function spellCheck(string) {
+            return string.split(' ').join('');
+            return string.split(' ').join('');
+        }
+
+        function forceKeyPressUppercase(e) {
+          var charInput = e.keyCode;
+          if((charInput >= 97) && (charInput <= 122)) { // lowercase
+            if(!e.ctrlKey && !e.metaKey && !e.altKey) { // no modifier key
+              var newChar = charInput - 32;
+              var start = e.target.selectionStart;
+              var end = e.target.selectionEnd;
+              e.target.value = e.target.value.substring(0, start) + String.fromCharCode(newChar) + e.target.value.substring(end);
+              e.target.setSelectionRange(start+1, start+1);
+              e.preventDefault();
+        }}}
+        document.getElementById("sn_id").addEventListener("keypress", forceKeyPressUppercase, true); 
+
+            //Function for Enter key go to device page
+            var serial = document.getElementById("sn_id");
+        serial.addEventListener("keydown", function (event) {
+            if (event.keyCode === 13) {
+                setURL(event);
+            }
+        });
+
+            //functions for buttons to redirect masterloop embed
+        function setURL() {
+            var sn_value = document.getElementById("sn_id").value;
+            var ml_url = "https://portal.masterloop.net/#/devices/general/" + sn_value;
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            document.getElementById("ml_embed").src = ml_url;
+        }
+
+        function Observations() {
+            var sn_value = document.getElementById("sn_id").value;
+            var Observations_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value;
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            document.getElementById("ml_embed").src = Observations_url;
+        }
+
+        function Commands() {
+            var sn_value = document.getElementById("sn_id").value;
+            var Commands_url = "https://portal.masterloop.net/#/devices/quickCommands/" + sn_value;
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            document.getElementById("ml_embed").src = Commands_url;
+        }
+
+        function History() {
+            var sn_value = document.getElementById("sn_id").value;
+            var History_url = "https://portal.masterloop.net/#/devices/" + sn_value + "/commandsHistory";
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            document.getElementById("ml_embed").src = History_url;
+        }
+
+        function chargerPlots() {
+            var sn_value = document.getElementById("sn_id").value;
+            var charger_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[21,38,46,96,104,109,110,114,120,182,183,184,185,194,195,196,197,198,199]";
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            document.getElementById("ml_embed").src = charger_url;
+        }
+
+        function networkPlots() {
+            var sn_value = document.getElementById("sn_id").value;
+            var network_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[11,46,130,131,132,136,150,141]";
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            document.getElementById("ml_embed").src = network_url;
+        }
+
+        function equalizerPlots() {
+            var sn_value = document.getElementById("sn_id").value;
+            var equalizer_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[29,31,32,33,34,35,36,37,38,39,50,70,87,88,89,100]";
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            document.getElementById("ml_embed").src = equalizer_url;
+        }
+        
+        function deratePlots() {
+            var sn_value = document.getElementById("sn_id").value;
+            var derate_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[115,114,116,150,151,152,153,154,155,160,161,162,163,170]";
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            document.getElementById("ml_embed").src = derate_url;
+        }
+
+            //CTRL + mouse click functions to open new tabs
+        function setURLCTRL() {
+            var sn_value = document.getElementById("sn_id").value;
+            var ml_url = "https://portal.masterloop.net/#/devices/general/" + sn_value;
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            window.open(ml_url);
+        }
+
+        function ObservationsCTRL() {
+            var sn_value = document.getElementById("sn_id").value;
+            var Observations_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value;
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            window.open(Observations_url);
+        }
+
+        function CommandsCTRL() {
+            var sn_value = document.getElementById("sn_id").value;
+            var Commands_url = "https://portal.masterloop.net/#/devices/quickCommands/" + sn_value;
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            window.open(Commands_url);
+        }
+
+        function HistoryCTRL() {
+            var sn_value = document.getElementById("sn_id").value;
+            var History_url = "https://portal.masterloop.net/#/devices/" + sn_value + "/commandsHistory";
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            window.open(History_url);
+        }
+
+        function chargerPlotsCTRL() {
+            var sn_value = document.getElementById("sn_id").value;
+            var charger_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[21,38,46,96,104,109,110,114,120,182,183,184,185,194,195,196,197,198,199]";
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            window.open(charger_url);
+        }
+
+        function networkPlotsCTRL() {
+            var sn_value = document.getElementById("sn_id").value;
+            var network_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[11,46,130,131,132,136,150,141]";
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            window.open(network_url);
+        }
+
+        function equalizerPlotsCTRL() {
+            var sn_value = document.getElementById("sn_id").value;
+            var equalizer_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[20,31,32,33,34,35,36,50,70,87,89]";
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            window.open(equalizer_url);
+        }
+
+        function deratePlotsCTRL() {
+            var sn_value = document.getElementById("sn_id").value;
+            var derate_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[115,114,116,150,151,152,153,154,155,160,161,162,163,170]";
+            if (document.getElementById("sn_id").value === "") {
+            return false; }
+            window.open(derate_url);
+        }
+
+    </script>
+</body>
+
+<style>
+    iframe {
+        position: fixed;
+        left: 0px;
+        background: #007DBD;
+    }
+
+    body {
+        background-color: #007DBD;
+    }
+
+    label {
+        color: #ffffff;
+    }
+
+    #link_btn {
+        margin-left: 22px;
+
+    }
+
+    #link_btn4 {
+        margin-right: 22px;
+
+    }
+
+    #link_btn5 {
+        color: #008812;
+
+    }
+
+    #link_btn6 {
+        color: #008812;
+
+    }
+
+    #link_btn7 {
+        color: #008812;
+        margin-bottom: 5px;
+    }
+    
+    #link_btn8 {
+        color: #886800;
+        margin-bottom: 5px;
+    }
+
+    .toolbar {
+        color: red;
+        text-align: left;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        margin-left: 245px;
+    }
+
+    @media (max-width: 1080px) {
+    .toolbar {
+      padding:0;
+      margin-left:0;
+    }}
+
+    #sn_id {
+        margin-bottom: 5px;
+        
+    }
+
+</style>
+
+</html>
