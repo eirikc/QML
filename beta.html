@@ -19,15 +19,8 @@
 
     <div class="toolbar">
 
-            <!-- Input field for serial number. 
-            All inputs will be spellchecked and corrected to remove spaces 
-            and replace lower case letters with upper case letters --> 
-        <input 
-        type="text"
-        placeholder="Serial number" 
-        id="sn_id" 
-        autocapitalize="characters"
-        maxlength="12" size="12" />
+            <!-- Input field for serial numbers --> 
+        <input type="text" placeholder="Serial number" id="sn_id" maxlength="12" size="12" />
 
             <!-- Buttons for Masterloop pages and quick plots.
             Will check if ctrl is pressed and will open a new tab if true -->
@@ -42,37 +35,29 @@
     </div>
 
 
-    <!--iframe id="ml_embed" title="Masterloop page" src="https://portal.masterloop.net/#/devices/filter/recent" frameborder="0"
+    <iframe id="ml_embed" title="Masterloop page" src="https://portal.masterloop.net/#/devices/filter/recent" frameborder="0"
         style="overflow:hidden;height:100%;width:100%" height="100%" width="100%">
-    </iframe-->
+    </iframe>
 
     <script>
 
-            //function to remove all spaces in serial text field
-        //function spellCheck(string) {
-           // return string.split(' ').join('');
-           // return string.split(' ').join('');
-
-
-       // }
-
-            document.getElementById('sn_id').addEventListener('input', function() {
-                var position = this.selectionStart;
-  
-                this.value = this.value.replace(/[^a-zA-Z0-9]+/g, '');
-                this.value = this.value.toUpperCase();
-                this.selectionEnd = position;
+            // Spellchecker to ignore everything that isn't characters or numbers
+            // and replace lowercase letters with upper case letters.
+        document.getElementById('sn_id').addEventListener('input', function() {
+            var position = this.selectionStart;
+            this.value = this.value.replace(/[^a-zA-Z0-9]+/g, '');
+            this.value = this.value.toUpperCase();
+            this.selectionEnd = position;
             });
 
-            //Function for Enter key go to device page
-            var serial = document.getElementById("sn_id");
-        serial.addEventListener("keydown", function (event) {
+            //Function for Enter-key go to device page
+        var serial = document.getElementById("sn_id");
+            serial.addEventListener("keydown", function (event) {
             if (event.keyCode === 13) {
                 setURL(event);
-            }
-        });
+            }});
 
-            //functions for buttons to redirect masterloop embed
+            // Functions for buttons to redirect masterloop embed
         function setURL() {
             var sn_value = document.getElementById("sn_id").value;
             var ml_url = "https://portal.masterloop.net/#/devices/general/" + sn_value;
@@ -207,7 +192,7 @@
 
 <style>
     iframe {
-        position: fixed;
+        position:fixed;
         left: 0px;
         background: #007DBD;
     }
@@ -216,46 +201,37 @@
         background-color: #007DBD;
     }
 
-    label {
-        color: #ffffff;
-    }
-
     #link_btn {
         margin-left: 22px;
-
     }
 
     #link_btn4 {
         margin-right: 22px;
-
     }
 
     #link_btn5 {
         color: #008812;
-
     }
 
     #link_btn6 {
         color: #008812;
-
     }
 
     #link_btn7 {
         color: #008812;
-        margin-bottom: 5px;
     }
     
     #link_btn8 {
         color: #886800;
-        margin-bottom: 5px;
+
     }
 
     .toolbar {
         color: red;
         text-align: left;
-        margin-top: 10px;
-        margin-bottom: 5px;
+        margin-top: 2px;
         margin-left: 245px;
+        margin-bottom: 5px;
     }
 
     @media (max-width: 1080px) {
