@@ -49,6 +49,9 @@
         <button type="submit" id="btnDerate" value="Derate" title="Derating charger plots"
             onclick="if(event.ctrlKey) deratePlotsCTRL(); else if(event.metaKey) deratePlotsCTRL(); else deratePlots()"><img
                 src="https://eirikc.github.io/js-ml/favicon.ico" style="float: center; width: 20px;">Derating</button>
+        <button type="submit" id="btnList" value="List" title="Charger mode list"
+            onclick="if(event.ctrlKey) listPlotsCTRL(); else if(event.metaKey) listPlotsCTRL(); else listPlots()"><img
+                src="https://eirikc.github.io/js-ml/favicon.ico" style="float: center; width: 20px;">Mode List</button>
     </div>
 
 
@@ -278,6 +281,28 @@
                 return false;
             }
         }
+        function listPlots() {
+            var sn_value = document.getElementById("sn_id").value;
+            var list_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/table?filter=[38,46,100,109,110,114,120,128]";
+            var sn_length = document.getElementById("sn_id").value.length;
+            if 
+                (sn_length === 8 && 
+                (sn_value.startsWith("EC") === true
+                || sn_value.startsWith("EH") === true
+                || sn_value.startsWith("QC") === true
+                || sn_value.startsWith("QH") === true)) {
+                document.getElementById("ml_embed").src = list_url;
+            }
+            else if
+            (sn_value === "") {
+                return false
+            }
+            else {
+                alert("Check serial number");
+                return false;
+            }
+        }
+
 
         //CTRL + mouse click functions to open new tabs
         function setURLCTRL() {
@@ -459,6 +484,27 @@
                 || sn_value.startsWith("QC") === true
                 || sn_value.startsWith("QH") === true)) {
                 window.open(derate_url);
+            }
+            else if
+            (sn_value === "") {
+                return false
+            }
+            else {
+                alert("Check serial number");
+                return false;
+            }
+        }
+        function listPlotsCTRL() {
+            var sn_value = document.getElementById("sn_id").value;
+            var list_url = "https://portal.masterloop.net/#/devices/observations/" + sn_value + "/plots?filter=[115,114,116,150,151,152,153,154,155,160,161,162,163,170]";
+            var sn_length = document.getElementById("sn_id").value.length;
+            if 
+                (sn_length === 8 && 
+                (sn_value.startsWith("EC") === true
+                || sn_value.startsWith("EH") === true
+                || sn_value.startsWith("QC") === true
+                || sn_value.startsWith("QH") === true)) {
+                window.open(list_url);
             }
             else if
             (sn_value === "") {
