@@ -5,7 +5,7 @@
 <head>
 
     <meta charset="utf-8">
-    <title>Quick Masterloop</title>
+    <title>QML</title>
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +17,7 @@
 <body>
 
     <div class="toolbar">
-        <img src="https://eirikc.github.io/js-ml/favicon.ico" id="icon" alt="Quick Masterloop" width="auto"
+        <img src="favicon.ico" id="icon" alt="QML" width="auto"
             height="auto">
         <!-- Input field for serial numbers -->
         <input type="text" name="Serial number" placeholder="Serial number" id="sn_id" spellcheck="false" maxlength="12"
@@ -28,51 +28,51 @@
         <!--input type="submit" id="btnDevice" value="➡ Device" onclick="if(event.ctrlKey) setURLCTRL(); else setURL()"-->
         <button type="submit" id="btnObservations" class="small-buttons" value="Observations" title="Observations"
             onclick="if(event.ctrlKey) ObservationsCTRL(); else if(event.metaKey) ObservationsCTRL(); else Observations()"><img
-                src="https://eirikc.github.io/js-ml/Observations.svg" class="small-buttons"
+                src="Observations.svg" class="small-buttons"
                 style="float: center; width: 30px;"></button>
         <button type="submit" id="btnSettings" class="small-buttons" value="Settings" title="Settings"
             onclick="if(event.ctrlKey) SettingsCTRL(); else if(event.metaKey) SettingsCTRL(); else Settings()"><img
-                src="https://eirikc.github.io/js-ml/Settings.svg" class="small-buttons"
+                src="Settings.svg" class="small-buttons"
                 style="float: center; width: 30px;"></button>
         <button type="submit" id="btnCommands" class="small-buttons" class="small-buttons" value="Commands"
             title="Control - Quick commands"
             onclick="if(event.ctrlKey) CommandsCTRL(); else if(event.metaKey) CommandsCTRL(); else Commands()"><img
-                src="https://eirikc.github.io/js-ml/Control.svg" style="float: center; width: 30px;"></button>
+                src="Control.svg" style="float: center; width: 30px;"></button>
         <button type="submit" id="btnHistory" class="small-buttons" class="small-buttons" value="History"
             title="Command history"
             onclick="if(event.ctrlKey) HistoryCTRL(); else if(event.metaKey) HistoryCTRL(); else History()"><img
-                src="https://eirikc.github.io/js-ml/Commands.svg" class="small-buttons"
+                src="Commands.svg" class="small-buttons"
                 style="float: center; width: 30px;"></button>
         <button type="submit" id="btnCharging" value="Charging" title="Charging plots"
             onclick="if(event.ctrlKey) chargerPlotsCTRL(); else if(event.metaKey) chargerPlotsCTRL(); else chargerPlots()"><img
-                src="https://eirikc.github.io/js-ml/favicon.ico" style="float: center; width: 20px;">Charging</button>
+                src="favicon.ico" style="float: center; width: 20px;">Charging</button>
         <button type="submit" id="btnNetwork" value="Network" title="Network connectivity plots"
             onclick="if(event.ctrlKey) networkPlotsCTRL(); else if(event.metaKey) networkPlotsCTRL(); else networkPlots()"><img
-                src="https://eirikc.github.io/js-ml/favicon.ico" style="float: center; width: 20px;">Network</button>
+                src="favicon.ico" style="float: center; width: 20px;">Network</button>
         <button type="submit" id="btnEqualizer" value="Equalizer" title="Equalizer plots"
             onclick="if(event.ctrlKey) equalizerPlotsCTRL(); else if(event.metaKey) equalizerPlotsCTRL(); else equalizerPlots()"><img
-                src="https://eirikc.github.io/js-ml/favicon.ico" style="float: center; width: 20px;">Equalizer</button>
+                src="favicon.ico" style="float: center; width: 20px;">Equalizer</button>
         <button type="submit" id="btnDerate" value="Derate" title="Derating charger plots"
             onclick="if(event.ctrlKey) deratePlotsCTRL(); else if(event.metaKey) deratePlotsCTRL(); else deratePlots()"><img
-                src="https://eirikc.github.io/js-ml/favicon.ico" style="float: center; width: 20px;">Derating</button>
+                src="favicon.ico" style="float: center; width: 20px;">Derating</button>
         <button type="submit" id="btnList" value="List" title="Charger mode list"
             onclick="if(event.ctrlKey) listPlotsCTRL(); else if(event.metaKey) listPlotsCTRL(); else listPlots()"><img
-                src="https://eirikc.github.io/js-ml/favicon.ico" style="float: center; width: 20px;">Mode List</button>
+                src="favicon.ico" style="float: center; width: 20px;">Mode List</button>
         <button type="submit" id="btnPortal" class="long-buttons" value="Portal"
             title="Open the device in the cloud portal (SHIFT+click to open beta portal)"
             onclick="if(event.shiftKey) openPortalSHIFT(); else if(event.ctrlKey) openPortalCTRL(); else if(event.metaKey) openPortalCTRL(); else openPortal()"><img
-                src="https://is5-ssl.mzstatic.com/image/thumb/Purple115/v4/32/18/cb/3218cb2a-1448-447b-ac64-ee8656702f17/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/492x0w.png"
+                src="492x0w.png"
                 style="float: center; width: 20px;">Open in portal</button>
         <button type="submit" id="btnPortalInfo" class="mini-buttons" value="Info"
             title="Info in portal (SHIFT+click to open beta One View in portal)"
             onclick="if(event.shiftKey) openPortalInfoSHIFT(); else if(event.ctrlKey) openPortalInfoCTRL(); else if(event.metaKey) openPortalInfoCTRL(); else openPortalInfo()"><img
-                src="https://eirikc.github.io/js-ml/information-outline.png"
+                src="information-outline.png"
                 style="float: center; width: 24px;"></button>
     </div>
 
 
     <iframe id="ml_embed" title="Masterloop page" src="https://portal.masterloop.net/#/devices/filter/recent"
-        frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%" onload="loadFocus">
+        frameborder="0" style="overflow:hidden;height:100%;width:100%" height="100%" width="100%">
     </iframe>
 
     <script>
@@ -268,7 +268,7 @@
             else if (snCheckEQ()) {
                 document.getElementById("ml_embed").src = ml_url;
             } else {
-                alert("Check serial number");
+                alert("Check Equalizer serial number");
                 return false;
             }
         }
@@ -455,7 +455,7 @@
             else if (snCheckEQ()) {
                 window.open(ml_url);
             } else {
-                alert("Check serial number");
+                alert("Check Equalizer serial number");
                 return false;
             }
         }
