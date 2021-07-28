@@ -17,8 +17,7 @@
 <body>
 
     <div class="toolbar">
-        <img src="favicon.ico" id="icon" alt="QML" width="auto"
-            height="auto">
+        <img src="favicon.ico" id="icon" alt="QML" width="auto" height="auto">
         <!-- Input field for serial numbers -->
         <input type="text" name="Serial number" placeholder="Serial number" id="sn_id" spellcheck="false" maxlength="12"
             size="11" autofocus />
@@ -27,47 +26,76 @@
             Will check if ctrl is pressed and will open a new tab if true -->
         <!--input type="submit" id="btnDevice" value="➡ Device" onclick="if(event.ctrlKey) setURLCTRL(); else setURL()"-->
         <button type="submit" id="btnObservations" class="small-buttons" value="Observations" title="Observations"
-            onclick="if(event.ctrlKey) ObservationsCTRL(); else if(event.metaKey) ObservationsCTRL(); else Observations()"><img
-                src="Observations.svg" class="small-buttons"
-                style="float: center; width: 30px;"></button>
+            onclick="if(event.ctrlKey) ObservationsCTRL(); else if(event.metaKey) ObservationsCTRL(); else Observations()"><svg
+                xmlns="http://www.w3.org/2000/svg" height="29px" viewBox="0 0 24 24" width="29px" fill="#FFFFFF">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                    d="M12 6c3.79 0 7.17 2.13 8.82 5.5C19.17 14.87 15.79 17 12 17s-7.17-2.13-8.82-5.5C4.83 8.13 8.21 6 12 6m0-2C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 5c1.38 0 2.5 1.12 2.5 2.5S13.38 14 12 14s-2.5-1.12-2.5-2.5S10.62 9 12 9m0-2c-2.48 0-4.5 2.02-4.5 4.5S9.52 16 12 16s4.5-2.02 4.5-4.5S14.48 7 12 7z" />
+            </svg></button>
+
         <button type="submit" id="btnSettings" class="small-buttons" value="Settings" title="Settings"
-            onclick="if(event.ctrlKey) SettingsCTRL(); else if(event.metaKey) SettingsCTRL(); else Settings()"><img
-                src="Settings.svg" class="small-buttons"
-                style="float: center; width: 30px;"></button>
+            onclick="if(event.ctrlKey) SettingsCTRL(); else if(event.metaKey) SettingsCTRL(); else Settings()"><svg
+                xmlns="http://www.w3.org/2000/svg" height="29px" viewBox="0 0 24 24" width="29px" fill="#FFFFFF">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                    d="M19.43 12.98c.04-.32.07-.64.07-.98 0-.34-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.09-.16-.26-.25-.44-.25-.06 0-.12.01-.17.03l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.06-.02-.12-.03-.18-.03-.17 0-.34.09-.43.25l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98 0 .33.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.09.16.26.25.44.25.06 0 .12-.01.17-.03l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.06.02.12.03.18.03.17 0 .34-.09.43-.25l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zm-1.98-1.71c.04.31.05.52.05.73 0 .21-.02.43-.05.73l-.14 1.13.89.7 1.08.84-.7 1.21-1.27-.51-1.04-.42-.9.68c-.43.32-.84.56-1.25.73l-1.06.43-.16 1.13-.2 1.35h-1.4l-.19-1.35-.16-1.13-1.06-.43c-.43-.18-.83-.41-1.23-.71l-.91-.7-1.06.43-1.27.51-.7-1.21 1.08-.84.89-.7-.14-1.13c-.03-.31-.05-.54-.05-.74s.02-.43.05-.73l.14-1.13-.89-.7-1.08-.84.7-1.21 1.27.51 1.04.42.9-.68c.43-.32.84-.56 1.25-.73l1.06-.43.16-1.13.2-1.35h1.39l.19 1.35.16 1.13 1.06.43c.43.18.83.41 1.23.71l.91.7 1.06-.43 1.27-.51.7 1.21-1.07.85-.89.7.14 1.13zM12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 6c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
+            </svg></button>
+
         <button type="submit" id="btnCommands" class="small-buttons" class="small-buttons" value="Commands"
             title="Control - Quick commands"
-            onclick="if(event.ctrlKey) CommandsCTRL(); else if(event.metaKey) CommandsCTRL(); else Commands()"><img
-                src="Control.svg" style="float: center; width: 30px;"></button>
+            onclick="if(event.ctrlKey) CommandsCTRL(); else if(event.metaKey) CommandsCTRL(); else Commands()"><svg
+                xmlns="http://www.w3.org/2000/svg" height="29px" viewBox="0 0 24 24" width="29px" fill="#FFFFFF">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                    d="M4.01 6.03l7.51 3.22-7.52-1 .01-2.22m7.5 8.72L4 17.97v-2.22l7.51-1M2.01 3L2 10l15 2-15 2 .01 7L23 12 2.01 3z" />
+            </svg></button>
+
         <button type="submit" id="btnHistory" class="small-buttons" class="small-buttons" value="History"
             title="Command history"
-            onclick="if(event.ctrlKey) HistoryCTRL(); else if(event.metaKey) HistoryCTRL(); else History()"><img
-                src="Commands.svg" class="small-buttons"
-                style="float: center; width: 30px;"></button>
-        <button type="submit" id="btnCharging" value="Charging" title="Charging plots"
+            onclick="if(event.ctrlKey) HistoryCTRL(); else if(event.metaKey) HistoryCTRL(); else History()"><svg
+                xmlns="http://www.w3.org/2000/svg" height="29px" viewBox="0 0 24 24" width="29px" fill="#FFFFFF">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                    d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.25 2.52.77-1.28-3.52-2.09V8z" />
+            </svg></button>
+
+        <button type="submit" id="btnCharging" class="medium-buttons" value="Charging" title="Charging plots"
             onclick="if(event.ctrlKey) chargerPlotsCTRL(); else if(event.metaKey) chargerPlotsCTRL(); else chargerPlots()"><img
-                src="favicon.ico" style="float: center; width: 20px;">Charging</button>
-        <button type="submit" id="btnNetwork" value="Network" title="Network connectivity plots"
+                src="favicon.ico">Charging</button>
+
+        <button type="submit" id="btnNetwork" class="medium-buttons" value="Network" title="Network connectivity plots"
             onclick="if(event.ctrlKey) networkPlotsCTRL(); else if(event.metaKey) networkPlotsCTRL(); else networkPlots()"><img
-                src="favicon.ico" style="float: center; width: 20px;">Network</button>
-        <button type="submit" id="btnEqualizer" value="Equalizer" title="Equalizer plots"
+                src="favicon.ico">Network</button>
+
+        <button type="submit" id="btnEqualizer" class="medium-buttons" value="Equalizer" title="Equalizer plots"
             onclick="if(event.ctrlKey) equalizerPlotsCTRL(); else if(event.metaKey) equalizerPlotsCTRL(); else equalizerPlots()"><img
-                src="favicon.ico" style="float: center; width: 20px;">Equalizer</button>
-        <button type="submit" id="btnDerate" value="Derate" title="Derating charger plots"
+                src="favicon.ico">Equalizer</button>
+
+        <button type="submit" id="btnDerate" class="medium-buttons" value="Derate" title="Derating charger plots"
             onclick="if(event.ctrlKey) deratePlotsCTRL(); else if(event.metaKey) deratePlotsCTRL(); else deratePlots()"><img
-                src="favicon.ico" style="float: center; width: 20px;">Derating</button>
-        <button type="submit" id="btnList" value="List" title="Charger mode list"
+                src="favicon.ico">Derating</button>
+
+        <button type="submit" id="btnList" class="medium-buttons" value="List" title="Charger mode list"
             onclick="if(event.ctrlKey) listPlotsCTRL(); else if(event.metaKey) listPlotsCTRL(); else listPlots()"><img
-                src="favicon.ico" style="float: center; width: 20px;">Mode List</button>
+                src="favicon.ico">Mode List</button>
+
         <button type="submit" id="btnPortal" class="long-buttons" value="Portal"
             title="Open the device in the cloud portal (SHIFT+click to open beta portal)"
             onclick="if(event.shiftKey) openPortalSHIFT(); else if(event.ctrlKey) openPortalCTRL(); else if(event.metaKey) openPortalCTRL(); else openPortal()"><img
-                src="492x0w.png"
-                style="float: center; width: 20px;">Open in portal</button>
+                src="492x0w.png">Open in portal</button>
+
         <button type="submit" id="btnPortalInfo" class="mini-buttons" value="Info"
             title="Info in portal (SHIFT+click to open beta One View in portal)"
-            onclick="if(event.shiftKey) openPortalInfoSHIFT(); else if(event.ctrlKey) openPortalInfoCTRL(); else if(event.metaKey) openPortalInfoCTRL(); else openPortalInfo()"><img
-                src="information-outline.png"
-                style="float: center; width: 24px;"></button>
+            onclick="if(event.shiftKey) openPortalInfoSHIFT(); else if(event.ctrlKey) openPortalInfoCTRL(); else if(event.metaKey) openPortalInfoCTRL(); else openPortalInfo()"><svg
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
+                <path
+                    d="M15.72 20.46C17.6906 19.5293 19.2612 17.9217 20.1458 15.93C21.0303 13.9382 21.1698 11.695 20.5389 9.60903C19.908 7.52305 18.5487 5.73315 16.7086 4.56546C14.8686 3.39778 12.6702 2.93005 10.5141 3.24748C8.35808 3.56491 6.38782 4.64638 4.96235 6.29484C3.53689 7.9433 2.75111 10.049 2.74818 12.2283C2.74525 14.4076 3.52537 16.5154 4.9464 18.1677C6.36743 19.82 8.33478 20.9068 10.49 21.23C10.6717 21.2599 10.8576 21.2509 11.0356 21.2035C11.2135 21.1561 11.3793 21.0715 11.5221 20.9552C11.6648 20.8389 11.7813 20.6936 11.8637 20.5289C11.946 20.3643 11.9925 20.184 12 20V12"
+                    stroke-width="1.5px" stroke-linejoin="round" stroke="#F5F5F5" fill="none"></path>
+                <path
+                    d="M12.58 9.40999C12.58 9.74688 12.3069 10.02 11.97 10.02C11.6331 10.02 11.36 9.74688 11.36 9.40999C11.36 9.07309 11.6331 8.79999 11.97 8.79999C12.3069 8.79999 12.58 9.07309 12.58 9.40999Z"
+                    fill="#005AFF" stroke="#F5F5F5" style="float: center; width: 24px;"></path>
+            </svg></button>
     </div>
 
 
@@ -602,6 +630,17 @@
         margin-bottom: 3px;
     }
 
+    .toolbar button svg {
+        vertical-align: middle;
+        padding-right: 5px;
+        margin-bottom: 3px;
+    }
+
+    button.medium-buttons img {
+        float: center;
+        width: 20px;
+    }
+
     button.small-buttons {
         flex-basis: 0px !important;
         min-width: 65px;
@@ -614,6 +653,10 @@
     }
 
     button.small-buttons img {
+        margin-top: 2px !important;
+    }
+
+    button.small-buttons svg {
         margin-top: 2px !important;
     }
 
@@ -632,6 +675,10 @@
         margin-top: 0px !important;
     }
 
+    button.mini-buttons svg {
+        margin-top: 0px !important;
+    }
+
     button.long-buttons {
         flex-basis: 0px !important;
         min-width: 160px;
@@ -647,6 +694,17 @@
         padding-right: 0px !important;
         margin-right: 5px;
         border-radius: 2.5px;
+        float: center; 
+        width: 20px;
+    }
+
+    button.long-buttons svg {
+        vertical-align: middle;
+        padding-right: 0px !important;
+        margin-right: 5px;
+        border-radius: 2.5px;
+        float: center; 
+        width: 20px;
     }
 
     #btnCommands {
