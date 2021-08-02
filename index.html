@@ -68,6 +68,20 @@
             onclick="if(event.shiftKey) openPortalInfoSHIFT(); else if(event.ctrlKey) openPortalInfoCTRL(); else if(event.metaKey) openPortalInfoCTRL(); else openPortalInfo()"><img
                 src="information-outline.png"
                 style="float: center; width: 24px;"></button>
+                src="492x0w.png">Open in portal</button>
+
+        <button type="submit" id="btnPortalInfo" class="long-buttons" value="Info"  
+            title="Open One View in the cloud portal (SHIFT+click to open in beta portal)"
+            onclick="if(event.shiftKey) openPortalInfoSHIFT(); else if(event.ctrlKey) openPortalInfoCTRL(); else if(event.metaKey) openPortalInfoCTRL(); else openPortalInfo()"><svg
+                xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg" fit="" preserveAspectRatio="xMidYMid meet" focusable="false">
+                <path
+                    d="M15.72 20.46C17.6906 19.5293 19.2612 17.9217 20.1458 15.93C21.0303 13.9382 21.1698 11.695 20.5389 9.60903C19.908 7.52305 18.5487 5.73315 16.7086 4.56546C14.8686 3.39778 12.6702 2.93005 10.5141 3.24748C8.35808 3.56491 6.38782 4.64638 4.96235 6.29484C3.53689 7.9433 2.75111 10.049 2.74818 12.2283C2.74525 14.4076 3.52537 16.5154 4.9464 18.1677C6.36743 19.82 8.33478 20.9068 10.49 21.23C10.6717 21.2599 10.8576 21.2509 11.0356 21.2035C11.2135 21.1561 11.3793 21.0715 11.5221 20.9552C11.6648 20.8389 11.7813 20.6936 11.8637 20.5289C11.946 20.3643 11.9925 20.184 12 20V12"
+                    stroke-width="1.5px" stroke-linejoin="round" stroke="#F5F5F5" fill="none"></path>
+                <path
+                    d="M12.58 9.40999C12.58 9.74688 12.3069 10.02 11.97 10.02C11.6331 10.02 11.36 9.74688 11.36 9.40999C11.36 9.07309 11.6331 8.79999 11.97 8.79999C12.3069 8.79999 12.58 9.07309 12.58 9.40999Z"
+                    fill="#005AFF" stroke="#F5F5F5" style="float: center; width: 24px;"></path>
+            </svg>Open One View</button>
     </div>
 
 
@@ -320,7 +334,7 @@
 
         function openPortalInfo() {
             var sn_value = document.getElementById("sn_id").value;
-            var ml_url = "https://easee.cloud/support/history/device-view/" + sn_value + "/list-and-chart?lists=118,21,80,36,20,107,137,116,96,46,109,114,115";
+            var ml_url = "https://easee.cloud/support/products/view/" + sn_value;
             forceFocus();
             if (snCheckEmpty()) {
                 return false
@@ -507,7 +521,7 @@
 
         function openPortalInfoCTRL() {
             var sn_value = document.getElementById("sn_id").value;
-            var ml_url = "https://easee.cloud/support/history/device-view/" + sn_value + "/list-and-chart?lists=118,21,80,36,20,107,137,116,96,46,109,114,115";
+            var ml_url = "https://easee.cloud/support/products/view/" + sn_value;
             forceFocus();
             if (snCheckEmpty()) {
                 return false
