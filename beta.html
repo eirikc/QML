@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <!--This is an HTML5 document-->
 <html lang="en">
@@ -19,8 +17,7 @@
 <body>
 
     <div class="toolbar">
-        <img src="favicon.ico" id="icon" alt="QML" width="auto"
-            height="auto">
+        <img src="favicon.ico" id="icon" alt="QML" width="auto" height="auto">
         <!-- Input field for serial numbers -->
         <input type="text" name="Serial number" placeholder="Serial number" id="sn_id" spellcheck="false" maxlength="12"
             size="11" autofocus />
@@ -30,47 +27,54 @@
         <!--input type="submit" id="btnDevice" value="➡ Device" onclick="if(event.ctrlKey) setURLCTRL(); else setURL()"-->
         <button type="submit" id="btnObservations" class="small-buttons" value="Observations" title="Observations"
             onclick="if(event.ctrlKey) ObservationsCTRL(); else if(event.metaKey) ObservationsCTRL(); else Observations()"><img
-                src="Observations.svg" class="small-buttons"
-                style="float: center; width: 30px;"></button>
+                src="Observations.svg" class="small-buttons" style="float: center; width: 30px;"></button>
+
         <button type="submit" id="btnSettings" class="small-buttons" value="Settings" title="Settings"
             onclick="if(event.ctrlKey) SettingsCTRL(); else if(event.metaKey) SettingsCTRL(); else Settings()"><img
-                src="Settings.svg" class="small-buttons"
-                style="float: center; width: 30px;"></button>
+                src="Settings.svg" class="small-buttons" style="float: center; width: 30px;"></button>
+
         <button type="submit" id="btnCommands" class="small-buttons" class="small-buttons" value="Commands"
             title="Control - Quick commands"
             onclick="if(event.ctrlKey) CommandsCTRL(); else if(event.metaKey) CommandsCTRL(); else Commands()"><img
                 src="Control.svg" style="float: center; width: 30px;"></button>
+
         <button type="submit" id="btnHistory" class="small-buttons" class="small-buttons" value="History"
             title="Command history"
             onclick="if(event.ctrlKey) HistoryCTRL(); else if(event.metaKey) HistoryCTRL(); else History()"><img
-                src="Commands.svg" class="small-buttons"
-                style="float: center; width: 30px;"></button>
+                src="Commands.svg" class="small-buttons" style="float: center; width: 30px;"></button>
+
         <button type="submit" id="btnCharging" value="Charging" title="Charging plots"
             onclick="if(event.ctrlKey) chargerPlotsCTRL(); else if(event.metaKey) chargerPlotsCTRL(); else chargerPlots()"><img
                 src="favicon.ico" style="float: center; width: 20px;">Charging</button>
+
         <button type="submit" id="btnNetwork" value="Network" title="Network connectivity plots"
             onclick="if(event.ctrlKey) networkPlotsCTRL(); else if(event.metaKey) networkPlotsCTRL(); else networkPlots()"><img
                 src="favicon.ico" style="float: center; width: 20px;">Network</button>
+
         <button type="submit" id="btnEqualizer" value="Equalizer" title="Equalizer plots"
             onclick="if(event.ctrlKey) equalizerPlotsCTRL(); else if(event.metaKey) equalizerPlotsCTRL(); else equalizerPlots()"><img
                 src="favicon.ico" style="float: center; width: 20px;">Equalizer</button>
+
         <button type="submit" id="btnDerate" value="Derate" title="Derating charger plots"
             onclick="if(event.ctrlKey) deratePlotsCTRL(); else if(event.metaKey) deratePlotsCTRL(); else deratePlots()"><img
                 src="favicon.ico" style="float: center; width: 20px;">Derating</button>
+
         <button type="submit" id="btnList" value="List" title="Charger mode list"
             onclick="if(event.ctrlKey) listPlotsCTRL(); else if(event.metaKey) listPlotsCTRL(); else listPlots()"><img
                 src="favicon.ico" style="float: center; width: 20px;">Mode List</button>
-        <button type="submit" id="btnPortal" class="long-buttons" value="Portal"
+
+        <!-- This doesn't work currently -->
+        <!-- <button type="submit" id="btnPortal" class="long-buttons" value="Portal"
             title="Open the device in the cloud portal (SHIFT+click to open beta portal)"
             onclick="if(event.shiftKey) openPortalSHIFT(); else if(event.ctrlKey) openPortalCTRL(); else if(event.metaKey) openPortalCTRL(); else openPortal()"><img
                 src="492x0w.png"
-                style="float: center; width: 20px;">Open in portal</button>
-        <button type="submit" id="btnPortalInfo" class="long-buttons" value="Info"  
+                style="float: center; width: 20px;">Open in portal</button> -->
+                
+        <button type="submit" id="btnPortalInfo" class="long-buttons" value="Info"
             title="Open One View in the cloud portal (SHIFT+click to open in beta portal)"
             onclick="if(event.shiftKey) openPortalInfoSHIFT(); else if(event.ctrlKey) openPortalInfoCTRL(); else if(event.metaKey) openPortalInfoCTRL(); else openPortalInfo()"><img
-                src="infobtn.png"
-                style="float: center; width: 24px;">Open One View</button>
-            </div>
+                src="infobtn.png" style="float: center; width: 24px;">Open One View</button>
+    </div>
 
 
     <iframe id="ml_embed" title="Masterloop page" src="https://portal.masterloop.net/#/devices/filter/recent"
@@ -305,6 +309,8 @@
             }
         }
 
+
+        // Not working currently.
         function openPortal() {
             var sn_value = document.getElementById("sn_id").value;
             var ml_url = "https://easee.cloud/support/products/navigate-to-site/" + sn_value;
@@ -322,7 +328,7 @@
 
         function openPortalInfo() {
             var sn_value = document.getElementById("sn_id").value;
-            var ml_url = "https://easee.cloud/support/products/view/" + sn_value;
+            var ml_url = "https://easee.cloud/support/products/" + sn_value;
             forceFocus();
             if (snCheckEmpty()) {
                 return false
@@ -509,7 +515,7 @@
 
         function openPortalInfoCTRL() {
             var sn_value = document.getElementById("sn_id").value;
-            var ml_url = "https://easee.cloud/support/products/view/" + sn_value;
+            var ml_url = "https://easee.cloud/support/products/" + sn_value;
             forceFocus();
             if (snCheckEmpty()) {
                 return false
@@ -543,7 +549,7 @@
 
         function openPortalInfoSHIFT() {
             var sn_value = document.getElementById("sn_id").value;
-            var ml_url = "https://beta.easee.cloud/support/products/view/" + sn_value;
+            var ml_url = "https://beta.easee.cloud/support/products/" + sn_value;
             forceFocus();
             if (snCheckEmpty()) {
                 return false
